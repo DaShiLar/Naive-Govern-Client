@@ -1,0 +1,42 @@
+<!--detail.wxml-->
+<view class="container">
+  <view class="topic-detail">
+    <view class="topic-owner">
+        <image class="owner-avatar" src="{{}}" id="{{detail.passage_id}}" bindtap="showUserInfo"></image>
+        <view class="topic-tit">{{detail.title}}</view>
+    </view>
+    <view class="topic-info">
+        <text>{{detail.passage_owner}}</text>
+        <text class="topic-created">{{detail.public_time}}</text>
+    </view>
+    <view class="topic-desc">
+        <text>{{detail.passage_content}}</text>
+    </view>
+  </view>
+
+  <view class="replies">
+    <block wx:for="{{replies}}">
+        <view class="replies-item" id="{{item.comment_id}}">
+            <view class="reply-owner">
+                <image class="reply-avatar" src="{{item.member.avatar_normal}}"></image>
+                <text class="reply-name">{{item.user_name}}</text>
+                <text class="reply-time">{{item.comment_time}}</text>
+            </view>
+            <view class="reply-content">
+                {{item.comment_content}}
+            </view>
+        </view>
+    </block>
+  </view>
+  
+<view class="section">
+  <form bindsubmit="bindFormSubmit">
+    <textarea placeholder="form 中的 textarea" name="textarea"/>
+    <button form-type="submit"> 提交 </button>
+  </form>
+</view>
+
+  <loading hidden="{{hidden}}">
+    加载中...
+  </loading>
+</view>
