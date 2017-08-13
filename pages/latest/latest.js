@@ -14,8 +14,9 @@ Page({
   
   // 事件处理函数
   redictDetail: function(e) {
-    var id = e.currentTarget.id,
-      url = '../detail/detail?id=' + id;
+    var id = e.currentTarget.id;
+    console.log("latest to detail " + id);
+    var url = '../detail/detail?id=' + id;
       
     wx.navigateTo({
       url: url
@@ -28,11 +29,12 @@ Page({
       hidden: false
     })
     wx.request({
-      url: Api.getLatestTopic({
-        p: 1
-      }),
+      url: Api.getLatestList(),
       success: function(res) {
         console.log(res);
+        res.data.map(function(node){
+          node.avatar = '/images/'+node.passage_owner+'.jpg';
+        });
         that.setData({
           latest: res.data
         })

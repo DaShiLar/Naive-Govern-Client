@@ -23,7 +23,7 @@ Page({
       hidden: false
     })
     wx.request({
-      url: Api.getTopicInfo({
+      url: Api.getNodeList({
         node_id: id
       }),
       success: function(res) {

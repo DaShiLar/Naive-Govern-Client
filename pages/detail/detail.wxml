@@ -2,7 +2,7 @@
 <view class="container">
   <view class="topic-detail">
     <view class="topic-owner">
-        <image class="owner-avatar" src="{{}}" id="{{detail.passage_id}}" bindtap="showUserInfo"></image>
+        <image class="owner-avatar" src="{{owner_avatar}}" id="{{detail.passage_id}}" bindtap="showUserInfo"></image>
         <view class="topic-tit">{{detail.title}}</view>
     </view>
     <view class="topic-info">
@@ -18,7 +18,7 @@
     <block wx:for="{{replies}}">
         <view class="replies-item" id="{{item.comment_id}}">
             <view class="reply-owner">
-                <image class="reply-avatar" src="{{item.member.avatar_normal}}"></image>
+                <image class="reply-avatar" src="/images/user.jpg"></image>
                 <text class="reply-name">{{item.user_name}}</text>
                 <text class="reply-time">{{item.comment_time}}</text>
             </view>
@@ -29,10 +29,19 @@
     </block>
   </view>
   
+<!--设置监听器，当点击radio时调用-->
+<radio-group bindchange="listenerRadioGroup">
+<!--label通常与radio和checkbox结合使用-->
+    <label style="display: flex" wx:for-items="{{radios}}">
+        <radio value="{{item.id}}" checked="{{item.checked}}"/>{{item.value}}
+    </label>
+</radio-group>
+
 <view class="section">
-  <form bindsubmit="bindFormSubmit">
-    <textarea placeholder="form 中的 textarea" name="textarea"/>
+  <form bindsubmit="bindFormSubmit" bindreset="bindFormReset">
+    <textarea placeholder="请在这里输入你的评论" name="textarea"/>
     <button form-type="submit"> 提交 </button>
+    <button form-type="reset">重置</button>
   </form>
 </view>
 
