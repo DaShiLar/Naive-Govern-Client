@@ -9,7 +9,7 @@
   "window":{
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "V2EX",
+    "navigationBarTitleText": "西城区政务公开",
     "navigationBarTextStyle":"black",
     "enablePullDownRefresh":"true"
   },

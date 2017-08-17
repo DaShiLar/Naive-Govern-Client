@@ -28,7 +28,11 @@
         </view>
     </block>
   </view>
-  
+
+<text>
+\n
+</text>
+
 <!--设置监听器，当点击radio时调用-->
 <radio-group bindchange="listenerRadioGroup">
 <!--label通常与radio和checkbox结合使用-->
@@ -36,6 +40,8 @@
         <radio value="{{item.id}}" checked="{{item.checked}}"/>{{item.value}}
     </label>
 </radio-group>
+
+<text class="comment">感谢你的留言</text>
 
 <view class="section">
   <form bindsubmit="bindFormSubmit" bindreset="bindFormReset">

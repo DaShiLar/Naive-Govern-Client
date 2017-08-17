@@ -11,7 +11,7 @@ Page({
   redictDetail: function(e) {
     var id = e.currentTarget.id,
       url = '../detail/detail?id=' + id;
-      
+      console.log("toplist id "+id);
     wx.navigateTo({
       url: url
     })
@@ -27,6 +27,7 @@ Page({
         node_id: id
       }),
       success: function(res) {
+        console.log(res.data);
         that.setData({
           topics: res.data
         })
