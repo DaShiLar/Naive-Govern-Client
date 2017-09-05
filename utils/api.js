@@ -1,5 +1,5 @@
 'use strict';
-var HOST_URI = 'https://45053688.hazelnutsgz.com/';
+var HOST_URI = 'https://45053688.hazelnutsgz.com:/govern/';
 
 // 获取所有节点
 var ALL_NODES_LIST = 'api/nodes';
